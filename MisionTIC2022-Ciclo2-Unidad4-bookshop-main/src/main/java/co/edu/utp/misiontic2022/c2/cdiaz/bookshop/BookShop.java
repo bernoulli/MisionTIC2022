@@ -106,7 +106,7 @@ public class BookShop {
             Book book = manager.searchBook(isbn);
             if (book != null) {
                 int units = manager.getStock(book);
-                System.out.println("unidades: " + units);
+                //System.out.println("unidades: " + units);
                 System.out.println("Hay " + units + " copias de " + book);
             } else {
                 System.out.println("Libro no encontrado: " + isbn);

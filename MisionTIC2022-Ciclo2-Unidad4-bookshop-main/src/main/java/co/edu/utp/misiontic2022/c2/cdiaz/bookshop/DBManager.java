@@ -21,7 +21,7 @@ public class DBManager implements AutoCloseable {
 
     private void connect() throws SQLException {
         // TODO: program this method
-        //var url = "jdbc:sqlite:/Users/bernardocuervo/Documents/ciclo2/Clases/Unidad4/BookShop2.db";
+        var url = "jdbc:sqlite:/Users/bernardocuervo/Documents/ciclo2/Clases/Unidad4/BookShop2.db";
         connection = DriverManager.getConnection(url);
         /*
         try{
@@ -61,8 +61,28 @@ public class DBManager implements AutoCloseable {
      */
     public int getStock(Book book) throws SQLException {
 
+        int resp = 0;
+        Statement stmt = null;
+        ResultSet rs = null;
 
-        return 0;
+        try{
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery("SELECT amount FROM Stock where id_Stock = '" + book.getId() + "'");
+            if(rs.next()){
+                resp = rs.getInt("amount");
+            }
+
+        }finally{
+            if(rs != null){
+                rs.close();
+            }
+            if(stmt != null){
+                stmt.close();
+            }
+        }
+
+
+        return resp;
     } 
 
     /**
@@ -116,9 +136,9 @@ public class DBManager implements AutoCloseable {
         
     } 
 
-    private Book Book() {
+    /* private Book Book() {
         return null;
-    }
+    } */
 
     /**
      * Sell a book.
@@ -130,7 +150,38 @@ public class DBManager implements AutoCloseable {
      * @throws SQLException If somthing fails with the DB.
      */
     public boolean sellBook(Book book, int units) throws SQLException {
-        return sellBook(book.getId(), units);
+        Statement stmt = null;
+        ResultSet rs = null;
+        var cantidad = 0;
+        Boolean resp = false;
+
+        try{
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery("SELECT id_Book, amount FROM Book inner join Stock on id_Book = id_stock where id_book = '" + book.getId() + "'");
+            if(rs.next()){
+                cantidad = rs.getInt("amount");
+            } 
+            if(cantidad < units){
+                resp = false;
+            }else{
+                //Trabajo futuro:
+                //1.Agregar la operacion a la tabla de ventas(sales)
+                //2.coloque aqui la operacion para hacer la venta y descuente del inventario la cantidad vendida.
+                resp  = true;
+            }
+        }finally{
+            if(rs != null){
+                rs.close();
+            }
+            if(stmt != null){
+                stmt.close();
+            }
+        }
+
+        return resp;
+
+
+        //return sellBook(book.getId(), units);
     }
 
     /**
@@ -144,6 +195,8 @@ public class DBManager implements AutoCloseable {
      */
     public boolean sellBook(int book, int units) throws SQLException {
         // TODO: program this method
+        
+
         return false;
     }
 
