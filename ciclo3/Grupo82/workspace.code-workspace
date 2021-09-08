@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "06_CRUD_HTML_CSS_JS"
+	},
+	"launch": {
+		"configurations": [
+			{
+				"type": "pwa-chrome",
+				"name": "http://127.0.0.1:5500/index.html",
+				"request": "launch",
+				"url": "http://127.0.0.1:5500/index.html"
+			}
+		]
+	}
+}
