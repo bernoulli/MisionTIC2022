@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    
+    <div id="app1">
+        <p>{{mensaje}}</p>
+        <p>{{mensaje2}}</p>
+    </div>
+
+    <br>
+    <!--input-->
+    <h2>Ejemplo de input</h2>
+    <div id="app2">
+        <p>{{mensaje}}</p>
+        <input v-model="mensaje">
+
+    </div>
+
+    <br>
+    <!--textarea-->
+    <h2>Ejemplo de textarea</h2>
+    <div id="app3">
+        <p>{{mensaje}}</p>
+        <textarea v-model="mensaje" placeholder="agregar texto"></textarea>
+
+    </div>
+
+    <!--checkbox-->
+    <br>
+    <h2>Checkbox</h2>
+    <div id="app4">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+    </div>
+
+    
+
+    <script>
+        var app = new Vue({
+            el: '#app1',
+            data: {
+                mensaje: 'Hola mundo!!',
+                mensaje2: 'hola vue',
+                
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                mensaje: 'Hola vue'
+            }
+        })
+
+        var app3 = new Vue({
+            el: '#app3',
+            data: {
+                mensaje: ''
+            }
+        })
+
+        var app4 = new Vue({
+            el: '#app4',
+            data: {
+                checked: false
+            }
+        })
+
+
+
+    </script>
+
+</body>
+</html>

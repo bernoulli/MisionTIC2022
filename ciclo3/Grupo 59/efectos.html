@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+
+    
+    <div id="example-3" class="demo">
+    <button @click="show = !show">
+        Mostrar/Ocultar
+    </button>
+    <transition name="custom-classes-transition" enter-active-class="animated tada" leave-active-class="animated bounceOutRight">
+        <p v-if="show">hola</p>
+    </transition>
+    </div>
+    <script>
+    new Vue({
+    el: '#example-3',
+    data: {
+        show: true
+    }
+    })
+    </script>
+
+
+   
+    
+</body>
+</html>
+
+
