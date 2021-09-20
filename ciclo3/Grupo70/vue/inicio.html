@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+    <div id="pruebavue">
+        <p>{{mensaje}}</p>
+    </div>
+
+    <div id="entrada">
+        <p>{{mensaje2}}</p>
+        <input v-model="mensaje2">
+    </div>
+
+    <div id="area-texto">
+        <span>
+            el mensaje de varias lineas:
+        </span>
+        <p style="white-space: pre-line;">{{ message }}</p>
+        <textarea v-model="message" placeholder="agregar multiple líneas de texto"></textarea>
+    </div>
+
+    <div id="check">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+
+    </div>
+
+    <h2>selector multiple </h2>
+        
+    <div id="selector">
+        <input type="checkbox" id="azul" value="azul" v-model="checkedColors">
+        <label for="azul">Azul</label>
+        <input type="checkbox" id="rojo" value="rojo" v-model="checkedColors">
+        <label for="rojo">Rojo</label>
+        <input type="checkbox" id="verde" value="verde" v-model="checkedColors">
+        <label for="verde">Verde</label>
+        <br>
+        <span>Colores seleccionados: {{checkedColors}}</span>
+
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: '#pruebavue',
+            data: {
+                mensaje: 'hola mundo'
+            }
+
+        })
+
+        var app1 = new Vue({
+            el: '#entrada',
+            data: {
+                mensaje2: 'Hola Vue'
+            }
+        })
+
+        new Vue({
+            el: '#area-texto',
+            data: {
+                message: ''
+            }
+        })
+
+        new Vue({
+            el: '#check',
+            data: {
+                checked: false
+            }
+        })
+
+        new Vue({
+            el: '#selector',
+            data: {
+                checkedColors: []
+            }
+        })
+
+    </script>
+
+</body>
+</html>

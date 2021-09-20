@@ -1,0 +1,114 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    
+</head>
+<body>
+
+    
+        <div id="example-1" class="demo">
+            <input v-model="message" placeholder="edíteme">
+            <p>El mensaje es: {{ message }}</p>
+        </div>
+
+        <div id="app-6">
+            <p>{{ message }}</p>
+            <input v-model="message">
+        </div>
+
+        <br>
+        <div id="example-textarea" class="demo">
+            <span>El mensaje multilínea es:</span>
+            <p style="white-space: pre-line;">{{ message }}</p>
+            <br>
+            <textarea v-model="message" placeholder="agregar múltiples líneas"></textarea>
+        </div>
+
+        <div id="example-2" class="demo">
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{ checked }}</label>
+          </div>
+
+        <br>
+
+        <div id="example-3" class="demo">
+            <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+            <label for="jack">Jack</label>
+            <input type="checkbox" id="john" value="John" v-model="checkedNames">
+            <label for="john">John</label>
+            <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+            <label for="mike">Mike</label>
+            <br>
+            <span>Nombres Checked: {{ checkedNames }}</span>
+          </div>
+          
+          <br>
+
+          <div id="example-6" class="demo">
+            <select v-model="selected" multiple style="width: 50px;">
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+            </select>
+            <br>
+            <span>Seleccionados: {{ selected }}</span>
+          </div>
+          
+        
+        <script>
+            new Vue({
+            el: '#example-1',
+            data: {
+                message: ''
+            }
+            })
+
+            var app6 = new Vue({
+            el: '#app-6',
+            data: {
+            message: 'Hola Vue!'
+            }
+            })
+
+            new Vue({
+                el: '#example-textarea',
+                data: {
+                message: ''
+                }
+            })
+
+            new Vue({
+            el: '#example-2',
+            data: {
+              checked: false
+            }
+            })
+
+            new Vue({
+            el: '#example-3',
+            data: {
+              checkedNames: []
+            }
+            })
+
+            new Vue({
+                el: '#example-6',
+                data: {
+                selected: []
+                }
+            })
+        </script>
+
+
+     
+       
+    
+</body>
+</html>
