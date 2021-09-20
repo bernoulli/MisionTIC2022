@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+   
+
+    <div id="flip-list-demo" class="demo">
+    <button v-on:click="shuffle">Mezclar</button>
+    <transition-group name="flip-list" tag="ul">
+        <li v-for="item in items" v-bind:key="item">
+        {{ item }}
+        </li>
+    </transition-group>
+    </div>
+      
+
+    <script>
+        new Vue({
+        el: '#flip-list-demo',
+        data: {
+            items: [1,2,3,4,5,6,7,8,9]
+        },
+        methods: {
+            shuffle: function () {
+            this.items = _.shuffle(this.items)
+            }
+        }
+        })
+
+    </script>
+
+    <style>
+    .flip-list-move {
+    transition: transform 1s;
+    }
+    </style>
+    
+</body>
+</html>
