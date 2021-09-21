@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>CRUD en Vue</title>
+
+
+</head>
+<body>
+
+    <h1>CRUD EN Vue.js</h1>
+    <div id="app" class="container ">
+        {{ mensaje }}
+
+
+
+        <input type="text" class="form-control mt-5" v-model="nuevaTarea" placeholder="Agregar Tarea" required="true">
+        <button class="btn btn-primary" @click="agregarTarea">Agregar</button>
+        
+
+        <table id="tabla" class="table table-bordered">
+            <tr>
+                <th>id</th>
+                <th>Nombre Tarea</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+
+            </tr>
+
+            <tr v-for="(item, index) of tareas" :key="item.id">
+
+                    <td>
+                        {{ item.id }}
+                    </td>
+                    <td>
+                        {{ item.nombre }}
+                    </td>
+                    <td>
+                        {{ item.estado }}
+                    </td>
+                    <td>
+                        <button class="btn btn-success" @click="cambiarEstado(index)">Editar</button>
+                        <button class="btn btn-danger" v-on:click="eliminarTarea(index)">Eliminar</button>
+                    </td>
+    
+            </tr>
+            
+
+        </table>
+
+        <button class="btn btn-info" type="button" @click="imprimirTabla">Imprimir Tabla</button>
+
+        
+
+        
+
+        <pre>
+            
+            {{ $data }}
+
+        </pre>
+       
+
+    </div>
+    
+    <!-- vue por cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
