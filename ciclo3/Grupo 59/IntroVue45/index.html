@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Vue 45</title>
+</head>
+<body>
+    <style>
+        body{
+            margin-right: auto;
+            margin-left: auto;
+            width: 800px;
+            margin-top: 50px;
+            font-size: 1.5em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .alert{
+            color: red;
+        }
+
+        .tituloH1{
+            color: seagreen;
+        }
+
+        img{
+            width: 200px;
+        }
+        div{
+            margin: 30px;
+        }
+    </style>
+    
+
+    <div id="app">
+        <h1 :class="tituloH1">
+            {{ titulo }}
+        </h1>
+        <img :src="imagen" alt="">
+
+        <p v-if="cantidad > 8">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis aliquam similique recusandae accusamus quas! Impedit architecto consequuntur quas voluptatem, eos iste eum adipisci ipsa tenetur ratione sequi, maxime at distinctio.
+        </p>
+        <p v-else-if="cantidad <= 8 && cantidad > 0">
+            Estoy cerca de agotarme!!
+        </p>
+        <p v-else>
+            {{ contingencia }}
+        </p>
+
+        <ol>
+            <li v-for="(tarea, index) in tareas" :key="index">
+                {{ tarea.text }}
+            </li>
+        </ol>
+
+        <div>
+
+            <input v-model="textoBuscar" type="text">
+            <button @click="getApiData" :disabled="textoBuscar ? false : true">Buscar Película</button>
+        </div>
+
+        <div v-for="(pelicula,index) in peliculas" :key="pelicula.id">
+            <h2>
+                {{ pelicula.Title }}
+            </h2>
+            <img :src="peliculas[index].Poster" alt="">
+            <p>
+                {{ pelicula.Plot }}
+            </p>
+            <a :href="enlace">click me!</a>
+        </div>
+    </div>
+
+
+    <!-- versión de desarrollo, incluye advertencias de ayuda en la consola -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
